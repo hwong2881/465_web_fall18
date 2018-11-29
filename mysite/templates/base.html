@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html class="no-js" lang="en" dir="ltr">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static "css/foundation.css" %}">
+  <link rel="stylesheet" href="{% static "css/app.css" %}">
+  <link rel="stylesheet" href="{% static "css/card.css" %}">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">Site Title</li>
+          <a href="/">HOME</a><br>
+          <a href="/accounts/login">LOGIN</a><br>
+          <a href="/accounts/register">REGISTER</a><br>
+          <a href="/chat">CHAT ROOM</a><br>
+          <a href="/shopping_cart">SHOPPING CART</a><br>
+      </ul>
+    </div>
+  </div>
+
+  {% block content %}
+  {% endblock %}
+  <script src="{% static "js/vendor/jquery.js" %}"></script>
+  <script src="{% static "js/vendor/what-input.js" %}"></script>
+  <script src="{% static "js/vendor/foundation.js" %}"></script>
+  <script src="{% static "js/app.js" %}"></script>
+
+
+  {% if user.is_authenticated %}
+  Welcome back {{ user.username }} !
+  {% else %}
+  <p>You are not logged in yet, Click <a href="{% url 'login' %}">HERE</a> to login
+  or <a href="/accounts/register">REGISTER</a> . </p>
+  {% endif %}
+
+
+
+</body>
+
+
+</html>

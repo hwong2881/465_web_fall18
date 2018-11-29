@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>homepage</title>
+  <link rel="stylesheet" href="{% static "css/home_page/home_page.css" %}">
+</head>
+<body>
+
+
+  <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">
+  {% for items in all_products %}
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>{{ items.name }}</h5>
+  </div>
+  {% endfor %}
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  <div class="cell">
+  <img class="thumbnail" src="https://placehold.it/550x550">
+  <h5>My Site</h5>
+  </div>
+  </div>
+
+
+<div class="col-md-9">
+    <div class="row">
+        {% for items in all_products %}
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <a href="{{ items.get_absolute_url }}">
+                        <img src="{{items.image.url}}" alt="" height="420" width="420">
+                    </a>
+                    <a href="{{ items.get_absolute_url }}">{{ items.name }}</a><br>
+                    ${{ items.price }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+<div class="row">
+    <div class="col-md-3">
+        <h3>Category</h3>
+        <ul class="nav nav-pills nav-stacked">
+            <li>
+                <a>All</a></li>
+            {% for x in all_catrgories %}
+                <li>
+                    <a href="{{ x.get_absolute_url }}">{{ x.what_category }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+<!-- <form method="GET" action="">
+    {% csrf_token %}
+    <input type="text" name="q">
+    <input type="submit" value="Search">
+    {% if results|length > 0 %}
+        {{ y }} {{ msg }}
+    {% else %}
+        was not found
+    {% endif %}
+</form> -->
+
+</body>
+</html>
+{% endblock %}
