@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'channels',
     'chat_app',
+
     'home_page',
     'accounts',
     'products',
+    'shopping_cart',
+    'checkout.apps.CheckoutConfig',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +78,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+STRIPE_SECRET_KEY = 'pk_test_O7w0eTeFjBdtECAqRDoQxMMC'
+STRIPE_PUBLISHABLE_KEY = 'sk_test_t0odAjK6KYrHYTA8sdN0lew9'
 
 
 # Database

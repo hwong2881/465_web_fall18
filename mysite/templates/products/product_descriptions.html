@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ single_item.name }}</title>
+</head>
+<body>
+  <!-- product description here -->
+   <img src="{{single_item.image.url}}" alt="" height="520" width="520">
+   <h1>{{ single_item.name }}</h1>
+   <h2>{{single_item.price }}</h2>
+   <h3>stock: {{ single_item.stock }}</h3>
+   <h3>available: {{ single_item.available }}</h3>
+   <h3>pdated: {{ single_item.pdated }}</h3>
+   <h3>description: {{ single_item.description }}</h3>
+{{ product_id }}
+   <a href='shopping_cart/added_{{ product_id }}'>
+   <button type="button" class="button expanded">Add to chat </button>
+  </a>
+  <a href="/">HOME</a>
+
+</body>
+</html>
+{% endblock %}

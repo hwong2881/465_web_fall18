@@ -13,8 +13,10 @@
   <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">
   {% for items in all_products %}
   <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>{{ items.name }}</h5>
+    <a href="{{ items.get_absolute_url }}">
+  <img class="thumbnail" src="{{items.image.url}}">
+    </a>
+  <h5>{{ items.name }}  ${{ items.price }}</h5>
   </div>
   {% endfor %}
   <div class="cell">
@@ -62,22 +64,6 @@
   <h5>My Site</h5>
   </div>
   </div>
-
-
-<div class="col-md-9">
-    <div class="row">
-        {% for items in all_products %}
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="{{ items.get_absolute_url }}">
-                        <img src="{{items.image.url}}" alt="" height="420" width="420">
-                    </a>
-                    <a href="{{ items.get_absolute_url }}">{{ items.name }}</a><br>
-                    ${{ items.price }}
-                </div>
-            </div>
-        {% endfor %}
-    </div>
 
 
 <div class="row">

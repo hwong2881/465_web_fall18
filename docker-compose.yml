@@ -26,6 +26,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./docker_container/home_page/static:/static
+      - ./mysite/home_page/static:/static
     depends_on:
       - web

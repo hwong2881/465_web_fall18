@@ -24,7 +24,7 @@ class Product_model(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.ForeignKey(Category_model, on_delete=models.CASCADE)
     description = models.TextField()
-    image = models.ImageField(upload_to="home_page/static/media/products_images", blank=True)
+    image = models.ImageField(upload_to="products_images", blank=True)
     stock = models.IntegerField(default=True)
     available = models.BooleanField(default=True)
     pdated = models.DateTimeField(auto_now=True)

@@ -9,7 +9,9 @@ urlpatterns = [
     path('chat/', include('chat_app.urls')),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('products/', include('products.urls')),
     path('shopping_cart/', include('shopping_cart.urls')),
+    path('checkout/', include('checkout.urls'))
 ]
 
 # if settings.DEBUG:
