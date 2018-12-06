@@ -1,10 +1,13 @@
-from channels.routing import route
-from chat_app.consumers import ws_connect, ws_disconnect
+# mysite/routing.py
+from channels.auth import AuthMiddlewareStack
+from channels.routing import ProtocolTypeRouter, URLRouter
+import chat_app.routing
 
-
-channel_routing = [
-    route("http.request", "chat_app.consumers.http_consumer"),
-    route('websocket.connect', ws_connect, path=r'^/chat/$'),
-    route('websocket.disconnect', ws_disconnect),
-]
-# channel_routing
+application = ProtocolTypeRouter({
+    # (http->django views is added by default)
+    'websocket': AuthMiddlewareStack(
+        URLRouter(
+            chat_app.routing.websocket_urlpatterns
+        )
+    ),
+})

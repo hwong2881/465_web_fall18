@@ -31,13 +31,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels',
     'chat_app',
 
     'home_page',
@@ -58,8 +58,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
-ASGI_APPLICATION = "mysite.routing.application"
-# AUTH_USER_MODEL = "accounts.User_classify"
 
 TEMPLATES = [
     {
@@ -112,13 +110,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+ASGI_APPLICATION = 'mysite.routing.application'
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'asgiref.inmemory.ChannelLayer',
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [('localhost', 6379)],
+            "hosts": [('0.0.0.0', 6379)],
         },
-        # 'ROUTING': 'chat_app.routing.channel_routing',
     },
 }
 

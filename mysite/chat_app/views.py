@@ -5,14 +5,18 @@ from django.contrib.auth.decorators import login_required
 import json
 
 
+from .models import Chat_model
 from . import models
 from . import forms
 # Create your views here.
-
-
 @login_required
 def waiting_room(request):
-    return render(request, 'chat_app/waiting_room.html')
+    # user_name = models.Chat_model.objects.filter(username=User)
+    username = Chat_model.objects.filter(username=request.user).order_by('-username')
+    context = {
+        "username":username,
+    }
+    return render(request, 'chat_app/waiting_room.html', context=context)
 
 
 @login_required

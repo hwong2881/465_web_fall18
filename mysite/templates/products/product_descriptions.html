@@ -5,18 +5,24 @@
 <html>
 <head>
   <title>{{ single_item.name }}</title>
+  <link rel="stylesheet" href="{% static "css/products/product_descriptions.css" %}">
 </head>
 <body>
   <!-- product description here -->
+   <div class = "multi">
+   <p style="border-width:4px; border-style:solid;">
    <img src="{{single_item.image.url}}" alt="" height="520" width="520">
+   </p>
    <h1>{{ single_item.name }}</h1>
+   <white>product_id: {{ product_id }}</white>
    <h2>{{single_item.price }}</h2>
    <h3>stock: {{ single_item.stock }}</h3>
    <h3>available: {{ single_item.available }}</h3>
-   <h3>pdated: {{ single_item.pdated }}</h3>
+   <h3>upload date: {{ single_item.pdated }}</h3>
    <h3>description: {{ single_item.description }}</h3>
-{{ product_id }}
+
    <a href='shopping_cart/added_{{ product_id }}'>
+   </div>
    <button type="button" class="button expanded">Add to chat </button>
   </a>
   <a href="/">HOME</a>

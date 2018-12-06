@@ -16,7 +16,7 @@ def cart_detail(request, total=0, counter=0, cart_items = None):
         return order[0]
     cart_items = models.Product_model.objects.all()
     for cart_item in cart_items:
-        total += (cart_item.price) #* cart_item.quantity)
+        total += cart_item.price #* cart_item.quantity)
         counter += cart_item.stock
         context = {
         # "one_order": one_order,

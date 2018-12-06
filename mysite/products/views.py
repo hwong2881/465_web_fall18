@@ -15,6 +15,7 @@ def products_detail(request,product_id):
     }
     return render(request, 'products/product_descriptions.html', context=context)
 
+
 def rest_all_products(request):
     if request.method == 'GET':
         all_products = models.Product_model.objects.all()

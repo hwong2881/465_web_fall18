@@ -1,6 +1,6 @@
 from django.db import models
 
-# from accounts.models import Profile
+from django.contrib.auth.models import User
 from products.models import Product_model
 
 
@@ -18,7 +18,7 @@ class Shopping_cart_item_model(models.Model):
 
 class Shopping_cart_model(models.Model):
     ref_code = models.CharField(max_length=15)
-    # owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
+    username = models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
     is_ordered = models.BooleanField(default=False)
     items = models.ManyToManyField(Shopping_cart_item_model)
     date_ordered = models.DateTimeField(auto_now=True)
