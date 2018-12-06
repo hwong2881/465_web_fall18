@@ -1,6 +1,3 @@
 FROM nginx:latest
-
-
-
-
-ADD default.conf /etc/nginx/default.conf
+RUN rm /etc/nginx/conf.d/default.conf
+COPY ./sites-enabled /etc/nginx/conf.d

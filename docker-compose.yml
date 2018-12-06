@@ -20,6 +20,7 @@ services:
        - 8000:8000
     command: python mysite/manage.py runserver 0.0.0.0:8000
 
+
   nginx:
     restart: always
     build: ./nginx/
