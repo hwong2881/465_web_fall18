@@ -115,7 +115,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('0.0.0.0', 6379)],
+            "hosts": [('35.207.48.130', 6379)],
         },
     },
 }
@@ -143,7 +143,7 @@ STATIC_URL = '/home_page/static/'
 MEDIA_URL = '/home_page/static/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'double_u','/home_page/static/media')
 
-LOGIN_URL = '/login/'
+LOGIN_URL = 'accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, '/home/static/'),)
