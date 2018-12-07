@@ -8,4 +8,3 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 COPY . /docker_container/
 RUN apt-get update
-RUN apt install redis-server
