@@ -6,17 +6,26 @@
   <title>Summary</title>
 </head>
 <body>
-{{existing_order}}
-{{existing_order.get_cart_items}}
+A;{{existing_order}}
 
-  {% for each_item in existing_order.get_cart_items %}
-        {{ each_item.product.name }}
+
+  {% for x in one_order %}
+        <h3>{{ x.ref_code }}</h3>
+        <h3>{{ x.username }}</h3>
+        {% for x in existing_order.get_cart_items %}
+        {{x}}
+        {% endfor %}
+        <h3> Total: {{existing_order.get_cart_total}}
+        <h3>{{ x.date_ordered }}</h3>
+        <h3>{{ x.is_ordered }}</h3>
   {% endfor %}
 
-  
-    {% for items in one_order %}
-  {{items.ref_code}}
+
+  {% for z in my_items %}
+  <h3>{{ z.product.name }}</h3>
+  <h3>{{ z.product.price }}</h3>
   {% endfor %}
+
 </body>
 </html>
 {% endblock %}

@@ -21,11 +21,18 @@
    <h3>upload date: {{ single_item.pdated }}</h3>
    <h3>description: {{ single_item.description }}</h3>
 
+
+
+   <form method="POST" action="/shopping_cart/added/{{ product_id }}/">
+       {% csrf_token %}
+       <button type="submit" onclick="popup()"> Add {{ single_item.name }} to chat </button>
+   </form>
+
    <a href='/shopping_cart/added/{{ product_id }}'>
-   </div>
+   <!-- </div>
    <button type="button" class="button expanded" onclick="popup()">Add to chat </button>
   </a>
-  <a href="/">HOME</a>
+  <a href="/">HOME</a> -->
 
 </body>
 <script>
