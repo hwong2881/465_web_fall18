@@ -6,8 +6,8 @@
   <title>Summary</title>
 </head>
 <body>
-A;{{existing_order}}
-
+A:{{existing_order}}
+B: {{ existing_order.get_cart_items }}
 
   {% for x in one_order %}
         <h3>{{ x.ref_code }}</h3>
@@ -24,8 +24,17 @@ A;{{existing_order}}
   {% for z in my_items %}
   <h3>{{ z.product.name }}</h3>
   <h3>{{ z.product.price }}</h3>
+  <form method="POST" action="/shopping_cart/removed/{{ z.product.id }}/">
+      {% csrf_token %}
+      <button type="submit" onclick="popup2()"> x </button>
+  </form>
   {% endfor %}
 
 </body>
+<script>
+function popup2() {
+  alert("item removed");
+}
+</script>
 </html>
 {% endblock %}

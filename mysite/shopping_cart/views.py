@@ -37,21 +37,20 @@ def cart_add(request, product_id):
         cart_item, status = models.Shopping_cart_item_model.objects.get_or_create(product=my_product)
         cart_item.quantity += 1
         cart_item.save()
-        messages.success(request, "item added to cart", extra_tags='cart_add')
+        # messages.success(request, "item added to cart", extra_tags='cart_add')
     cart_item = models.Shopping_cart_item_model.objects.all()
     context = {
         "cart_item":cart_item,
         "product_id":product_id,
         "my_product":my_product,
     }
-
     return redirect('/shopping_cart/')
 
 
 def cart_remove(request, product_id):
     if request.method == 'POST':
-        item_to_delete = Shopping_cart_item_model.objects.get(pk=product_id)
+        item_to_delete = models.Shopping_cart_item_model.objects.get(pk=product_id)
         quantity = item_to_delete.quantity
         item_to_delete.delete()
-    messages.add_message(request, messages.SUCCESS ,"item deleted to cart")
+    # messages.add_message(request, messages.SUCCESS ,"item deleted to cart")
     return redirect('/shopping_cart/')

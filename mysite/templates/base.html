@@ -9,7 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static "css/foundation.css" %}">
   <link rel="stylesheet" href="{% static "css/app.css" %}">
-  <link rel="stylesheet" href="{% static "css/card.css" %}">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
@@ -20,8 +19,12 @@
       <ul class="dropdown menu" data-dropdown-menu>
         <li class="menu-text">Site Title</li>
           <a href="/">HOME</a><br>
+          {% if user.is_authenticated %}
           <a href="/accounts/login">LOGIN</a><br>
           <a href="/accounts/register">REGISTER</a><br>
+          {% else %}
+          <a href="/accounts/logout">LOGOUT</a><br>
+          {% endif %}
           <a href="/chat">CHAT ROOM</a><br>
           <a href="/shopping_cart">SHOPPING CART</a><br>
       </ul>
