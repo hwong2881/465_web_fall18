@@ -30,3 +30,11 @@ def home(request):
     "all_catrgories":all_catrgories,
     }
     return render(request, 'home_page/home_page.html', context=context)
+
+def category(request, category):
+    if request.method == 'GET':
+        find_catrgory = models.Product_model.objects.get(category=category)
+        context = {
+        "find_catrgory":find_catrgory,
+        }
+    return redirect('/')

@@ -71,10 +71,14 @@
         <h3>Category</h3>
         <ul class="nav nav-pills nav-stacked">
             <li>
+
                 <a>All</a></li>
             {% for x in all_catrgories %}
                 <li>
-                    <a href="{{ x.get_absolute_url }}">{{ x.what_category }}</a>
+                    <form method="GET" action="">
+                    {% csrf_token %}
+                    <a href="{{ x.get_absolute_url }}/sort/{{ x.what_category }}">{{ x.what_category }}</a>
+                    </form>
                 </li>
             {% endfor %}
         </ul>

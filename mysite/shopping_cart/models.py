@@ -26,8 +26,5 @@ class Shopping_cart_model(models.Model):
     def get_cart_items(self):
         return self.items.all()
 
-    def get_cart_total(self):
-        return sum([item.product.price for item in self.items.all()])
-
     def __str__(self):
         return '{0} - #{1}--'.format(self.username, self.ref_code)

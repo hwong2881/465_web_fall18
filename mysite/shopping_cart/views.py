@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from decimal import Decimal
 
 
 from accounts.forms import Registration_form
@@ -20,10 +21,14 @@ def cart_detail(request, total=0, counter=0, cart_items = None):
     one_order = models.Shopping_cart_model.objects.all()
     my_items = models.Shopping_cart_item_model.objects.all()
     existing_order = pending_order(request)
+    order_total = Decimal(0.00)
+    # for item in my_items:
+        # order_total += (item.product.price * item.quantity)
     context = {
     "existing_order": existing_order,
     "one_order": one_order,
     "my_items": my_items,
+    # "order_total": order_total,
     }
     return render(request, 'shopping_cart/shopping_cart.html', context=context)
 
@@ -49,8 +54,12 @@ def cart_add(request, product_id):
 
 def cart_remove(request, product_id):
     if request.method == 'POST':
-        item_to_delete = models.Shopping_cart_item_model.objects.get(pk=product_id)
-        quantity = item_to_delete.quantity
+        item_to_delete = models.Product_model.objects.get(pk=product_id)
+        quantity = item_to_delete.stock
         item_to_delete.delete()
     # messages.add_message(request, messages.SUCCESS ,"item deleted to cart")
-    return redirect('/shopping_cart/')
+    # update_cart(request)
+    return redirect('/')
+
+# def update_cart(request):
+#     request.session['cart_count'] = get_cart_count(request)
