@@ -5,15 +5,17 @@ import json
 class ChatConsumer(WebsocketConsumer):
     def connect(self):
         room_name = self.scope['url_route']['kwargs']['room_name']
-        me =self.scope['usr']
+        me =self.scope['user']
         print(me, " connected to websocket in room:", room_name)
-        self.room_group_name = "chat_%s" % room_name
+        # self.room_group_name = "chat_%s" % room_name
         self.accept()
+
+
 
     def disconnect(self, close_code):
         pass
 
-    # Receive message from WebSocket
+
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
@@ -22,7 +24,6 @@ class ChatConsumer(WebsocketConsumer):
             'message': message
         }))
 
-    # Receive message from room group
     def chat_message(self, event):
         message = event['message']
 

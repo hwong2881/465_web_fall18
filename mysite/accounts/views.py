@@ -14,10 +14,3 @@ def register(request):
     "form":registration_form,
     }
     return render(request, "registration/register.html", context=context)
-
-
-
-# def customer_register(request):
-
-
-# def administrator_register(request):

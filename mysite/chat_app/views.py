@@ -11,6 +11,9 @@ def index(request):
 
 
 def room(request, room_name):
-    return render(request, 'chat_app/chat_.html', {
-        'room_name_json': mark_safe(json.dumps(room_name))
-    })
+    username = request.user,
+    context = {
+        'room_name': mark_safe(json.dumps(room_name)),
+        'username': username
+    }
+    return render(request, 'chat_app/chat_.html', context=context)
