@@ -7,7 +7,7 @@ def register(request):
         registration_form = forms.Registration_form(request.POST)
         if registration_form.is_valid():
             registration_form.save(commit=True)
-            return redirect("/login/")
+            return redirect("/accounts/login/")
     else:
         registration_form = forms.Registration_form()
     context = {

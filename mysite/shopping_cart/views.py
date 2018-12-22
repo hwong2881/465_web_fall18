@@ -16,14 +16,14 @@ def pending_order(request):
         return order[0]
     return 0
 
-
-def cart_detail(request, total=0, counter=0, cart_items = None):
+@login_required()
+def cart_detail(request, order_total=0):
     one_order = models.Shopping_cart_model.objects.all()
     my_items = models.Shopping_cart_item_model.objects.all()
     existing_order = pending_order(request)
     order_total = Decimal(0.00)
     # for item in my_items:
-        # order_total += (item.product.price * item.quantity)
+    #     order_total += (item.product.price * item.quantity)
     context = {
     "existing_order": existing_order,
     "one_order": one_order,
@@ -35,7 +35,7 @@ def cart_detail(request, total=0, counter=0, cart_items = None):
 
 
 
-# @login_required()
+@login_required()
 def cart_add(request, product_id):
     if request.method == 'POST':
         my_product = Product_model.objects.get(id=product_id)

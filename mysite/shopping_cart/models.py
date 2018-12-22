@@ -17,7 +17,7 @@ class Shopping_cart_item_model(models.Model):
 
 
 class Shopping_cart_model(models.Model):
-    ref_code = models.CharField(max_length=15)
+    ref_code = models.CharField(max_length=15, default=000)
     username = models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
     items = models.ManyToManyField(Shopping_cart_item_model)
     date_ordered = models.DateTimeField(auto_now=True)

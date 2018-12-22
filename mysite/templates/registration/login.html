@@ -1,23 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Login</h2>
+
+
+<h2>Login<h2>
+  <h3>
+  {% if not self.user.is_authenticated %}
+    Login to access shopping cart, checkout, and chat room feature.
+  {% endif %}
+  </h3>
+
+
+
+
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit" class="button expanded">Login</button>
+  <button type="submit" class="button expanded" >Login</button>
 </form>
 
-<!-- {% if form.errors %}
-  <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+username:hinwunwong pw:212321
+<a href="/accounts/register" class="btn btn-success">Register</a>
 
-{% if next %}
-  {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-  {% else %}
-    <p>Please login to see this page.</p>
-  {% endif %}
-{% endif %}
-{% endblock %} -->
+{% endblock %}

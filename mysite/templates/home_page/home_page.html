@@ -14,55 +14,19 @@
   {% for items in all_products %}
   <div class="cell">
     <a href="{{ items.get_absolute_url }}">
+  {% if items.image %}
   <img class="thumbnail" src="{{items.image.url}}">
+  {% endif %}
     </a>
   <h5>{{ items.name }}  ${{ items.price }}</h5>
   </div>
   {% endfor %}
+
   <div class="cell">
   <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
+  <h5>Nothing</h5>
   </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
-  <div class="cell">
-  <img class="thumbnail" src="https://placehold.it/550x550">
-  <h5>My Site</h5>
-  </div>
+
   </div>
 
 

@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# 35.207.48.130
 ASGI_APPLICATION = 'mysite.routing.application'
 CHANNEL_LAYERS = {
     'default': {
